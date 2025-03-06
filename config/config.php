@@ -101,14 +101,14 @@ define('RESPONSE_CHARSET', 'utf-8'); // charset para las respuestas HTTP
 
 // Parámetros de configuración de la base de datos:
 define('DB_HOST', 'localhost'); // Host.
-define('DB_USER', 'root'); // Usuario.
-define('DB_PASS', ''); // Password.
-define('DB_NAME', 'biblioteca'); // Nombre de la base de datos.
-define('DB_PORT', 3306); // Puerto.
-define('DB_CHARSET', 'utf8'); // Codificación de caracteres.
+define('DB_USER', 'root');      // Usuario.
+define('DB_PASS', '');          // Password.
+define('DB_NAME', 'biblioteca');// Nombre de la base de datos.
+define('DB_PORT', 3306);        // Puerto.
+define('DB_CHARSET', 'utf8');   // Codificación de caracteres.
 
-define('DB_CLASS', 'DBPDO'); // Clase a usar, puede ser DBMysqli (mysqli) o DBPDO (PDO).
-define('SGDB', 'mysql'); // Driver que debe usar PDO (solamente para PDO).
+define('DB_CLASS', 'DBPDO');    // Clase a usar, puede ser DBMysqli (mysqli) o DBPDO (PDO).
+define('SGDB', 'mysql');        // Driver que debe usar PDO (solamente para PDO).
 
 /*
  * -------------------------------------------------------------
@@ -229,10 +229,10 @@ define('DEBUG', true); // Activa el modo debug.
 // Detalles que queremos mostrar en modo debug en la página de error
 // OPCIONES: user, trace, request, session
 define('DEBUG_INFO', [
-    'user', // Muestra información del usuario y cliente.
-    'trace', // Muestra traza del error.
+    'user',    // Muestra información del usuario y cliente.
+    'trace',   // Muestra traza del error.
     'request', // Muestra información de la Request y datos recibidos.
-    'session' // Muestra las variables de sesión.
+    'session'  // Muestra las variables de sesión.
 ]);
 
 define('LOG_ERRORS', true); // Guardar errores en fichero de log.
