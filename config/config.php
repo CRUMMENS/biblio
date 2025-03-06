@@ -124,15 +124,15 @@ define('USER_PROVIDER', 'User'); // La única opción incluida es User.
 
 // Roles para los usuarios. Podemos crear o eliminar roles según las necesidades.
 define('USER_ROLES', [
-    'Usuario' => 'ROLE_USER',
+    'Usuario'       => 'ROLE_USER',
     'Administrador' => 'ROLE_ADMIN',
     'Bibliotecario' => 'ROLE_LIBRARIAN',
-    'Supervisor' => 'ROLE_SUPERVISOR',
-    'Editor' => 'ROLE_EDITOR',
-    'Test' => 'ROLE_TEST',
-    'API' => 'ROLE_API',
-    'Estudiante' => 'ROLE_STUDENT',
-    'Bloqueado' => 'ROLE_BLOCKED'
+    'Supervisor'    => 'ROLE_SUPERVISOR',
+    'Editor'        => 'ROLE_EDITOR',
+    'Test'          => 'ROLE_TEST',
+    'API'           => 'ROLE_API',
+    'Estudiante'    => 'ROLE_STUDENT',
+    'Bloqueado'     => 'ROLE_BLOCKED'
 ]);
 
 // Rol para el administrador (debe ser uno de los que están en la lista anterior).
