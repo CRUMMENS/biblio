@@ -78,8 +78,7 @@ class Base implements TemplateInterface
      *
      * @return string HTML con los enlaces a login y logout.
      */
-    public function login()
-    {
+    public function login() {
 
         // si el usuario no está identificado, retorna el botón de LogIn
         if (Login::guest()) {
@@ -87,11 +86,13 @@ class Base implements TemplateInterface
                <div class='derecha'>
                     <a class='button' href='/Login'>LogIn</a>
                </div>";
+            
         } else {
             $user = Login::user(); // recupera el usuario identificado
 
             // pone el texto "Bienvenido usuario" con un enlace a su home
             $html = "<div class='right'>
+
                         <span class='pc'>Bienvenido</span> 
                         <a class='negrita' href='/User/home'>
                             $user->displayname
@@ -103,11 +104,13 @@ class Base implements TemplateInterface
                 $html .= "<span class='pc'> eres <a class='negrita' href='/Admin'>administrador</a>.</span>";
 
             // pone la imagen de perfil y el enlace a logout
-            $html .= "  <img class='xx-small middle my1' src='/images/users/" . ($user->picture ?? 'default.png') . "' alt='Imagen de perfil'>
+            $html .= "  <img class='xx-small middle my1' 
+                        src='".USER_IMAGE_FOLDER."/" .($user->picture ?? DEFAULT_USER_IMAGE) . "' alt='Imagen de perfil'>
                         <a class='button' href='/Logout'>LogOut</a>
+
                      </div>";
         }
-        return $html;
+        return $html; //retorna el codigo HTML generado
     }
 
     /*
@@ -158,40 +161,53 @@ class Base implements TemplateInterface
     {
 
         
-        // ---- PARTE IZQUIERDA : PARA TODOS LOS USUARIOS -----
-        
         $html = "<menu class='menu'>";
-        $html .= "<li><a href='/'>Inicio</a></li>";
         
+        // ------- PARA IZQUIERDA : PARA TODOS LOS USUARIOS --------
+        
+        $html .= "<li><a href='/'>Inicio</a></li>";   
         $html .= "<li><a href='/Libro'>Libros</a></li>";
         $html .= "<li><a href='/Tema'>Temas</a></li>";
         $html .= "<li><a href='/'>Contacto</a></li>";
         
         
-        // CAMBIAR !!!!!
-        //por ahora lo tendremos para todos , pero mas tarde será para BIBLIOTECARIO
+        
+        // -------- PARA DERECHA : PARA USUARIOS CONCRETOS ---------
+        
+        //SOLO PARA EL BIBLIOTECARIO:
         
         $html .= "<li><a href='/'>Panel bibliotecario</a></li>";
         
+        if(Login::role('ROLE_LIBRARIAN')){
+            $html .= "<li><a href='/Panel'>Panel del bibliotecario</a></li>";
+        }
         
         
-
-        // ----- PARA DERECHA : PARA USUARIOS CONCRETOS ------
-
-        // enlace a los ejemplos de maquetación (solamente administrador o rol de test)
+        //SOLO PARA EL ADMIN:
+        
+        if(Login::role('ROLE_ADMIN')){
+            $html .= "<li><a href= '/Panel/admin'> Panel del administrador</a></li>";    
+        }
+        
+        $html .= "<li><a href='/Contacto'> Contacto </a></li>";
+        
+        
+        // SOLO ADMIN Y TEST:
+        
+        // enlace a los ejemplos de maquetación 
         if (Login::oneRole(TEST_ROLES))
            $html .= "<li><a href='/Example'>Ejemplos de maquetación</a></li>";
         
             
-        // enlace a los tests de ejemplo (solamente administrador o rol de test)
+        // enlace a los tests de ejemplo
         if (Login::oneRole(TEST_ROLES))
             $html .= "<li><a href='/Test'>Test</a></li>";
 
-        // enlace a las estadística de visitas (solamente administrador o rol de test)
+        // enlace a las estadística de visitas 
         if (SAVE_STATS && Login::oneRole(STATS_ROLES))
             $html .= "<li><a href='/Stat'>Visitas</a></li>";
 
-        // enlace a la gestión de errores (solamente administrador o rol de test)
+        // enlace a la gestión de errores
         if ((Login::oneRole(ERROR_ROLES)) && (DB_ERRORS || LOG_ERRORS || LOG_LOGIN_ERRORS))
             $html .= "<li><a href='/Error/list'>Errores</a></li>";
 
