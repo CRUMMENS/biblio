@@ -41,18 +41,20 @@
 					<th class="centrado">Operaciones</th>
 				</tr>
 		
-		
-		<!----------------------- ¡¡¡¡¡¡ FALTA TERMINAR !!!!!!! -------------------------->
+	
 			
-		<?php foreach($libros as $libro){ ?>
+		<?php foreach($prestamos as $prestamo){ ?>
 			<tr>
-				<td><?= $libro->isbn?></td>
-				<td><a href='/Libro/show/<?= $libro->id ?>' ><?=$libro->titulo?></a></td>
-				<td><?=$libro->autor?></td>
+				<td><?= $prestamo->id?></td>
+				<td><?= $prestamo->socio?></td>
+				<td><a href='/Prestamo/show/<?= $prestamo->id ?>' ><?=$prestamo->idejemplar?></a></td>
+				<td><?=$libro->titulo?></td>
+				<td><?= $prestamo->limite?></td>
+				<td><?= $prestamo->devolucion?></td>
 				<td class="centrado">
-					<a href='/Libro/show/<?= $libro->id?>'>Ver</a>
-   					<a href='/Libro/edit/<?= $libro->id?>'>Editar</a>
-   					<a href='/Libro/delete/<?= $libro->id?>'>Borrar</a>
+					<a href='/Prestamo/show/<?= $prestamo->id?>'>Ver</a>
+   					<a href='/Prestamo/edit/<?= $prestamo->id?>'>Editar</a>
+   					<a href='/Prestamo/delete/<?= $prestamo->id?>'>Borrar</a>
    				</td>
    			</tr>
    		<?php } ?>
