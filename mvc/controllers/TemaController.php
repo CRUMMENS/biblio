@@ -97,6 +97,14 @@ class TemaController extends Controller{
     
     
     
+    public function delete (int $id = 0) {
+        
+        $tema = Tema::findOrFail($id , "No existe el tema");
+        
+        return view('tema/delete' , [
+            'tema' => $tema
+        ]);
+    }
     
     
     public function destroy(){

@@ -17,9 +17,9 @@
 	</head>
 	<body>
 		<?= $template->login() ?>
-		<?= $template->header('Ejemplos de maquetación') ?>
+		<?= $template->header('Editar libro') ?>
 		<?= $template->menu() ?>
-		<?= $template->breadCrumbs(["Ejemplos de maquetación" => NULL]) ?>
+		<?= $template->breadCrumbs(["Libros" => NULL]) ?>
 		<?= $template->messages() ?>
 		<?= $template->acceptCookies() ?>
 		

@@ -2,7 +2,7 @@
 <html lang="es">
 	<head>
 		<meta charset="UTF-8">
-		<title>Listado de ejemplos de maquetación - <?= APP_NAME ?></title>
+		<title>Create de Libros - <?= APP_NAME ?></title>
 		
 		<!-- META -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,9 +17,9 @@
 	</head>
 	<body>
 		<?= $template->login() ?>
-		<?= $template->header('Ejemplos de maquetación') ?>
+		<?= $template->header('Create de Libros ') ?>
 		<?= $template->menu() ?>
-		<?= $template->breadCrumbs(["Ejemplos de maquetación" => NULL]) ?>
+		<?= $template->breadCrumbs(["Libros" => NULL]) ?>
 		<?= $template->messages() ?>
 		<?= $template->acceptCookies() ?>
 		

@@ -113,7 +113,14 @@ class SocioController extends Controller{
     }
     
     
-    
+    public function delete (int $id = 0) {
+        
+        $socio = Socio::findOrFail($id , "No existe el socio");
+        
+        return view('socio/delete' , [
+            'socio' => $socio
+        ]);
+    }
     
     
     public function destroy(){

@@ -5,10 +5,17 @@ class LibroController extends Controller{
         return $this->list();
     }
     
+    
+    
+    
+    
     public function list(){
         
+        //recupera todos los libros 
+        //$libros = Libro::orderBy('titulo'); // si los queremos ordenar
         $libros = Libro::all();
         
+        //carga la vista que los muestra
         return view('libro/list', [
             'libros' => $libros
         ]);
@@ -16,21 +23,33 @@ class LibroController extends Controller{
     }
     
      public function show(int $id = 0){
+         
+         //comprueba que llega el ID
             if(!$id)
                 throw new NothingToFindException('No se indicó el libro a buscar');
                 
+                //busca el libro con ese ID
                 $libro= Libro::find($id);
                 
+                //comprueba que existe ese libro
                 if(!$libro)
                     throw new NotFoundException('No se encontró el libro indicado');
                     
+                    //carga la vista y le pasa el libro recuperado
                     return view('libro/show', [
                         'libro' => $libro
                     ]);
         }
+        
+        
+        
         public function create(){
             return view('libro/create');
         }
+        
+        
+        
+        
         
         public function store(){
             
@@ -70,6 +89,10 @@ class LibroController extends Controller{
             return redirect("/Libro/create");
             }
          }
+         
+         
+         
+         
         public function edit(int $id=0){
             $libro =Libro::findOrFail($id, "No se encontro el libro");
             
@@ -78,6 +101,10 @@ class LibroController extends Controller{
             ]);
         }
     
+        
+        
+        
+        
         public function update(){
             if(!request()->has('actualizar'))
                 throw new FormException('No se recibieron datos');
@@ -113,6 +140,17 @@ class LibroController extends Controller{
              }
         }
         
+        
+        
+        
+        public function delete (int $id = 0) {
+            
+            $libro = Libro::findOrFail($id , "No existe el libro");
+            
+            return view('libro/delete' , [
+                'libro' => $libro 
+            ]);
+        }
         
         
         

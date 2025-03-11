@@ -2,7 +2,7 @@
     <html lang="es">
     	<head>
     		<meta charset="UTF-8">
-			<title>Listado de libros  - <?= APP_NAME ?></title>
+			<title>Listado de temas  - <?= APP_NAME ?></title>
 		
     		<!-- META -->
     		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,36 +18,34 @@
    
    		<body>
    		<?= $template->login()?>
-   		<?= $template->header('Lista de libros')?>
+   		<?= $template->header('Listado de temas')?>
    		<?= $template->menu()?>
-   		<?= $template->breadCrumbs([
-   			'Libros' => null
-   		])?>
+   		<?= $template->breadCrumbs(['Listado de temas' => null])?>
    		<?= $template->messages()?>
    		
    		<main>
    			<h1><?= APP_NAME?></h1>
-   			<h2>Lista completa de libros</h2>
+   			<h2>Lista completa de temas</h2>
 
-		<?php if ($libros){?>
+		<?php if ($temas){?>
 			<table class="table w100">
 				<tr>
-					<th>ISBN</th>
-					<th>Título</th>
-					<th>Autor</th>
+					<th>Tema</th>
+					<th>Descripcion</th>
+					
 					<th class="centrado">Operaciones</th>
 				</tr>
 		
 			
 		<?php foreach($libros as $libro){ ?>
 			<tr>
-				<td><?= $libro->isbn?></td>
-				<td><a href='/Libro/show/<?= $libro->id ?>' ><?=$libro->titulo?></a></td>
-				<td><?=$libro->autor?></td>
+				<td><?= $tema->tema?></td>
+				<td><?= $tema->descripcion?></td>
+				
 				<td class="centrado">
-					<a href='/Libro/show/<?= $libro->id?>'>Ver</a>
-   					<a href='/Libro/edit/<?= $libro->id?>'>Editar</a>
-   					<a href='/Libro/delete/<?= $libro->id?>'>Borrar</a>
+					<a href='/Libro/show/<?= $tema->id?>'>Ver</a>
+   					<a href='/Libro/edit/<?= $tema->id?>'>Editar</a>
+   					<a href='/Libro/delete/<?= $tema->id?>'>Borrar</a>
    				</td>
    			</tr>
    		<?php } ?>
@@ -55,7 +53,7 @@
    			
    			<?php }else{ ?>
    			<div class="danger p2">
-   				<p>No hay libros que mostrar.</p>   			
+   				<p>No hay temas que mostrar.</p>   			
    			</div>
    			
    			<div class="centered">
