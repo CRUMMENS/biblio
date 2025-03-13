@@ -40,7 +40,7 @@
 			<input type="text"  name="poblacion" value="<?= old('poblacion')?>">
 			<br>
 			<label>Telefono</label>
-			<input type="text"  name="telefono" value="<?= old('telefono')?>">
+			<input type="number"  name="telefono" value="<?= old('telefono')?>">
 			<br>
 			<label>Email</label>
 			<input type="text"  name="email" value="<?= old('email')?>">

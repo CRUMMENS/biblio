@@ -2,7 +2,7 @@
 <html lang="es">
 	<head>
 		<meta charset="UTF-8">
-		<title>Editar libro<?= APP_NAME ?></title>
+		<title>Editar socio<?= APP_NAME ?></title>
 		
 		<!-- META -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,62 +17,37 @@
 	</head>
 	<body>
 		<?= $template->login() ?>
-		<?= $template->header('Ejemplos de maquetación') ?>
+		<?= $template->header('Editar socio') ?>
 		<?= $template->menu() ?>
-		<?= $template->breadCrumbs(["Ejemplos de maquetación" => NULL]) ?>
+		<?= $template->breadCrumbs(["Socio" => NULL]) ?>
 		<?= $template->messages() ?>
 		<?= $template->acceptCookies() ?>
 		
 		<main>
 			<h1><?=APP_NAME?></h1>
-			<h2>Edición del libro<?= $libro->titulo?></h2>
+			<h2>Edición del socio<?= $socio->nombre?> <?= $socio->apellidos?></h2>
 			
-			<form method="POST" action="/Libro/update">
+			<form method="POST" action="/Socio/update">
 			
-				<input type="hidden" name="id" value="<?= $libro->id?>">
+				<input type="hidden" name="id" value="<?= $socio->id?>">
 				
-				<label>ISBN</label>
-				<input type="text" name="isbn" value="<?= old('isbn', $libro->isbn)?>">
+				<label>DNI</label>
+				<input type="text" name="dni" value="<?= old('dni', $socio->dni)?>">
 				<br>
-    			<label>Título</label>
-    			<input type="text"  name="titulo" value="<?= old('tirulo')?>">
+    			<label>Nombre</label>
+    			<input type="text"  name="nombre" value="<?= old('nombre')?>">
     			<br>
-    			<label>Editorial</label>
-    			<input type="text"  name="editorial" value="<?= old('editorial')?>">
+    			<label>Apellidos</label>
+    			<input type="text"  name="apellidos" value="<?= old('apellidos')?>">
     			<br>
-    			<label>Autor</label>
-    			<input type="text"  name="autor" value="<?= old('editorial')?>">
+    			<label>Poblacion</label>
+    			<input type="text"  name="poblacion" value="<?= old('poblacion')?>">
     			<br>
-    			<label>Idioma</label>
-    			<select name="idioma">
-    				<option value="Castellano" <?= oldSelected('idioma', 'Castellano')?>>
-    				Castellano</option>
-    				<option value="Catalán"    <?= oldSelected('idioma', 'Catalán')?>>
-    				Catalán</option>
-    				<option value="Otros" <?= oldSelected('idioma', 'Otros')?>>
-    				Otros</option>
-    			</select>
+    			<label>Telefono</label>
+    			<input type="number"  name="telefono" value="<?= old('telefono')?>">
     			<br>
-    			<label>Edición</label>
-    			<input type="text"  name="edicion" value="<?= old('edicion')?>">
-    			<br>
-    			<label>Año</label>
-    			<input type="number"  name="año" value="<?= old('anyo')?>">
-    			<br>
-    			<label>Edad rec.</label>
-    			<input type="number"  name="edadrecomendada" value="<?= old('edadrecomendada')?>">
-    			<br>
-    			
-    			<label>Páginas</label>
-    			<input type="number"  name="paginas" value="<?= old('paginas')?>">
-    			<br>
-    			
-    			<label>Características</label>
-    			<input type="text"  name="caracteristicas" value="<?= old('caracteristicas')?>">
-    			<br>
-    			
-    			<label>Sinopsis</label>
-    			<textarea name="sinopsis" class="w50"><?= old('paginas')?></textarea>
+    			<label>Email</label>
+    			<input type="text"  name="email" value="<?= old('email')?>">
     			<br>
     			
     			<div class="centrado mt2">
@@ -85,9 +60,9 @@
 				    			
     			<div class= "centrado mt2">
     				<a class="button" onclick="history.back()">Atrás</a>
-    				<a class="button" href="/Libro/list">Lista de libros</a>
-    				<a class="button" href="/Libro/show/ <?= $libro->id ?>">Detalles</a>
-    				<a class="button" href="/Libro/delete/ <?= $libro->id ?>">Borrado</a>
+    				<a class="button" href="/Socio/list">Lista de socios</a>
+    				<a class="button" href="/Socio/show/ <?= $socio->id ?>">Detalles</a>
+    				<a class="button" href="/Socio/delete/ <?= $socio->id ?>">Borrado</a>
     			</div>
 	
 		</main>
